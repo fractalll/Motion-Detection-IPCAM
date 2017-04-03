@@ -1,0 +1,88 @@
+﻿@using IpCamMonitor.Models;
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/Style.css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <script>   
+        function ConfirmDelete()
+        {
+            var sel = document.getElementById("CurrentSettings_Id"); 
+            var title = sel.options[sel.selectedIndex].text; 
+
+            if (confirm("Вы точно хотите удалить камеру: " + title + "?"))
+            {
+                var id = document.getElementById("hide_id").value;               
+                document.location.href = "/Settings/DeleteCamera/" + id;
+            }          
+        }
+    </script>
+    <title>SettingsEditor</title>
+</head>
+<body>
+    <div class="panel-success">
+        <div class="panel-heading text-center">
+            <h4>Редактор настроек подключения к камерам</h4>
+        </div>              
+
+        @model SettingsViewModel
+        <label>Выберите камеру: </label>
+        @using (Html.BeginForm("Index", "Settings", FormMethod.Post, new { id = "comboform" }))
+        {
+            @Html.DropDownListFor(x => x.CurrentSettings.Id, Model.ItemList, new {
+                 @class = "form-control",                   
+                 onchange = "this.form.submit();"
+            })
+        }
+        
+        <div class="panel-body">
+            @using (Html.BeginForm("SaveSettings", "Settings", FormMethod.Post))
+            {                
+                @:<!--*Html.ValidationSummary()-->              
+              
+                @Html.TextBoxFor(x => Model.CurrentSettings.Id, new { type = "hidden", id = "hide_id" })               
+
+                <div class="form-group">
+                    <label>Заголовок:</label>
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Title, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Ip адрес:</label>
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Ip, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Порт:</label>
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Port, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Url:</label>
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Url, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Логин:</label>
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Login, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Пароль:</label>
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Pass, new { @class = "form-control", type = "password"})
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Сохранить настройки" class="btn btn-success">
+                    <div class="btn btn-default" onclick="document.getElementById('comboform').submit()"><b>Сбросить изменения</b></div>
+                    <br><br>
+                    <a href="/Settings/AddCamera" class="btn btn-primary">Добавить камеру</a>
+                    <div onclick="ConfirmDelete()" class="btn btn-danger">Удалить камеру</div>                    
+                </div>
+            }
+        </div>
+    </body>
+</html>
