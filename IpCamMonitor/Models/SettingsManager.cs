@@ -26,7 +26,7 @@ namespace IpCamMonitor.Models
         {
             try
             {
-                if (File.Exists(_filename))
+                if (File.Exists(_filename))  //лишнее?
                     File.Delete(_filename);
 
                 using (FileStream fs = new FileStream(_filename, FileMode.Create))

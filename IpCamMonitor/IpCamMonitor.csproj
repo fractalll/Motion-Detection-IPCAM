@@ -124,6 +124,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Global.cs" />
+    <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\SettingsViewModel.cs" />
     <Compile Include="Models\SettingsManager.cs" />
     <Compile Include="Models\Settings.cs" />

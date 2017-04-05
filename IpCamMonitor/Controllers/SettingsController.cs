@@ -1,4 +1,6 @@
-﻿using IpCamMonitor.Models;
+﻿
+using IpCamMonitor.Models;
+using IpCamMonitor.Models.SettingsModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

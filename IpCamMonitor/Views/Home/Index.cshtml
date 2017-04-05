@@ -1,4 +1,5 @@
-﻿
+﻿@using IpCamMonitor.Models.HomeModel
+@model List<HomeViewModel>
 @{
     Layout = null;
 }
@@ -18,6 +19,14 @@
         <h1>ООРКК - Онлайн мониторинг аудиторий</h1>
     </div class="btn btn-success" >
         @Html.ActionLink("Настройки", "/Index/", "Settings")
+        @foreach(var pic in Model)
+        {
+            <div class="cam-port">
+                <h3 class="text-center">@pic.Title</h3>
+                <img src="@pic.FileName" width="304" height="236" class="img-thumbnail" />
+            </div>
+        }
+
 
 
     </div>

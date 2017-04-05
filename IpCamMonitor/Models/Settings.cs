@@ -7,6 +7,12 @@ using System.Xml.Serialization;
 
 namespace IpCamMonitor.Models
 {
+    public enum SlashType
+    {
+        WebSlash = 0,
+        WinSlash = 1
+    }
+
     public class Settings
     {
         // id?
@@ -32,9 +38,16 @@ namespace IpCamMonitor.Models
         [XmlIgnore]
         public int Id { get; set; }
 
-        public string GetImageName()
-        {           
-            return Global.RootFolder + "capture_img\\" + Ip + ".jpg";
+        string GetSlash(SlashType st)
+        {
+            if (st == SlashType.WebSlash)
+                return "/";
+            return "\\";
+        }
+
+        public string GetImageName(SlashType st)
+        {        
+            return "App_Data" + GetSlash(st) + "capture_img" + GetSlash(st) + Ip + ".jpg";
         }                
 
         public string GetConnectionString()
