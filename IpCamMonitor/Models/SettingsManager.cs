@@ -9,7 +9,7 @@ namespace IpCamMonitor.Models
 {
     public class SettingsManager
     {
-        string _filename = "C:\\IPCamMonitorUtil\\config.xml";
+        string _filename = Global.RootFolder + "config.xml"; 
 
         [XmlArray("Camera_List"), XmlArrayItem("Camera")]
         public List<Settings> CamList { get; set; }

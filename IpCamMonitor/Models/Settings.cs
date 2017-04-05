@@ -32,9 +32,9 @@ namespace IpCamMonitor.Models
         [XmlIgnore]
         public int Id { get; set; }
 
-        public string GetPathFolder()
+        public string GetImageName()
         {           
-            return "C:\\IPCamMonitorUtilcapture\\capture_img\\" + Ip + ".jpg";
+            return Global.RootFolder + "capture_img\\" + Ip + ".jpg";
         }                
 
         public string GetConnectionString()
