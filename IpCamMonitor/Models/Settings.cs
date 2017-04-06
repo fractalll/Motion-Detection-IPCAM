@@ -47,7 +47,7 @@ namespace IpCamMonitor.Models
 
         public string GetImageName(SlashType st)
         {        
-            return "App_Data" + GetSlash(st) + "capture_img" + GetSlash(st) + Ip + ".jpg";
+            return "~/Content" + GetSlash(st) + "capture_img" + GetSlash(st) + Ip + ".jpg";
         }                
 
         public string GetConnectionString()

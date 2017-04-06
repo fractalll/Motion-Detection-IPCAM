@@ -5,15 +5,16 @@ using System.Web;
 using System.Web.Mvc;
 using IpCamMonitor.Models;
 using IpCamMonitor.Models.HomeModel;
+using System.Web.UI;
 
 namespace IpCamMonitor.Controllers
 {
     public class HomeController : Controller
     {
         SettingsManager manager = new SettingsManager();
-       
 
-        // GET: Home
+
+        [OutputCache(Duration = 0, NoStore = true)]
         public ActionResult Index()
         {
             manager.LoadConfig();
