@@ -18,13 +18,19 @@ namespace IpCamMonitor.Controllers
         public ActionResult Index()
         {
             manager.LoadConfig();
-            List<HomeViewModel> model = manager.CamList.Select(x => new HomeViewModel
+            List<HomeViewModel> model = manager.SettingsList.Select(x => new HomeViewModel
             {
                 Title = x.Title,
-                FileName = x.GetImageName(SlashType.WebSlash)               
+                FileName = x.GetImagePath(SlashType.WebSlash)               
             }).ToList();
 
             return View(model);
-        } 
+        }
+
+        [OutputCache(Duration = 1)]
+        public PartialViewResult GetPicture(string filename)
+        {            
+            return PartialView((object)filename);
+        }
     }
 }

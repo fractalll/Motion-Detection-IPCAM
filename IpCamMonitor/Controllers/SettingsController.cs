@@ -31,7 +31,7 @@ namespace IpCamMonitor.Controllers
         {
             settingsManager.LoadConfig();                        
             
-            model.ItemList = settingsManager.CamList.Select(x => new SelectListItem
+            model.ItemList = settingsManager.SettingsList.Select(x => new SelectListItem
             {
                 Text = x.Title,
                 Value = x.Id.ToString()
@@ -43,7 +43,7 @@ namespace IpCamMonitor.Controllers
         /// </summary>        
         private void SwichCurrentSettings(SettingsViewModel svm)
         {            
-            model.CurrentSettings = settingsManager.CamList.Where(x => x.Id == svm.CurrentSettings.Id).Single();     
+            model.CurrentSettings = settingsManager.SettingsList.Where(x => x.Id == svm.CurrentSettings.Id).Single();     
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace IpCamMonitor.Controllers
         private void SwichCurrentSettings(int id)
         {
             // BUG: при отсутсвии нужного id, если файл пус, например, или вручную вбит адрес
-            model.CurrentSettings = settingsManager.CamList.Where(x => x.Id == id).Single();
+            model.CurrentSettings = settingsManager.SettingsList.Where(x => x.Id == id).Single();
         }
 
         [HttpGet]
@@ -73,9 +73,9 @@ namespace IpCamMonitor.Controllers
         {
             try
             {
-                for (int i = 0; i < settingsManager.CamList.Count; i++)
-                    if (settingsManager.CamList[i].Id == svm.CurrentSettings.Id)
-                        settingsManager.CamList[i] = svm.CurrentSettings;
+                for (int i = 0; i < settingsManager.SettingsList.Count; i++)
+                    if (settingsManager.SettingsList[i].Id == svm.CurrentSettings.Id)
+                        settingsManager.SettingsList[i] = svm.CurrentSettings;
 
                 settingsManager.SaveConfig();
                 UpdateModelFromXML();
@@ -91,7 +91,7 @@ namespace IpCamMonitor.Controllers
 
         public ActionResult DeleteCamera(int id)
         {
-            settingsManager.CamList.RemoveAll((pred) => pred.Id == id);
+            settingsManager.SettingsList.RemoveAll((pred) => pred.Id == id);
 
             settingsManager.SaveConfig();
             UpdateModelFromXML();
@@ -109,7 +109,7 @@ namespace IpCamMonitor.Controllers
        [HttpPost]
        public ActionResult AddCamera(Settings set)
        {
-            settingsManager.CamList.Add(set);
+            settingsManager.SettingsList.Add(set);
             settingsManager.SaveConfig();
             UpdateModelFromXML();
 

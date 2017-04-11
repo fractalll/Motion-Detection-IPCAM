@@ -75,3 +75,77 @@ C:\IpCamMonitor\IpCamMonitor\bin\ru\System.Web.Mvc.resources.dll
 C:\IpCamMonitor\IpCamMonitor\obj\Debug\IpCamMonitor.csprojResolveAssemblyReference.cache
 C:\IpCamMonitor\IpCamMonitor\obj\Debug\IpCamMonitor.dll
 C:\IpCamMonitor\IpCamMonitor\obj\Debug\IpCamMonitor.pdb
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\csc.exe
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\vbc.exe
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\VBCSCompiler.exe
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\IpCamMonitor.dll.config
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\IpCamMonitor.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\IpCamMonitor.pdb
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Helpers.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Mvc.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Razor.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Webpages.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Webpages.Razor.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Razor.xml
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Webpages.xml
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Webpages.Razor.xml
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Helpers.xml
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\System.Web.Mvc.xml
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\ru\System.Web.Razor.resources.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\ru\System.Web.Webpages.resources.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\ru\System.Web.Webpages.Deployment.resources.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\ru\System.Web.Webpages.Razor.resources.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\ru\System.Web.Helpers.resources.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\bin\ru\System.Web.Mvc.resources.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\obj\Debug\IpCamMonitor.csprojResolveAssemblyReference.cache
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\obj\Debug\IpCamMonitor.dll
+C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\obj\Debug\IpCamMonitor.pdb
+C:\IpCamMonitor\IpCamMonitor\bin\cvextern.dll
+C:\IpCamMonitor\IpCamMonitor\bin\msvcp120.dll
+C:\IpCamMonitor\IpCamMonitor\bin\msvcr120.dll
+C:\IpCamMonitor\IpCamMonitor\bin\opencv_ffmpeg300.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Contrib.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Cuda.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.DebuggerVisualizers.VS2010.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.DebuggerVisualizers.VS2012.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.DebuggerVisualizers.VS2013.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.DebuggerVisualizers.VS2015.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.ML.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.OCR.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Shape.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Stitching.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Superres.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.UI.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.UI.GL.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.VideoStab.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.Util.dll
+C:\IpCamMonitor\IpCamMonitor\bin\ZedGraph.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Microsoft.VisualStudio.DebuggerVisualizers.dll
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Contrib.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Cuda.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.ML.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.OCR.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Shape.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Stitching.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Superres.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.UI.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.UI.GL.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.VideoStab.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Emgu.Util.xml
+C:\IpCamMonitor\IpCamMonitor\bin\ru\Microsoft.VisualStudio.DebuggerVisualizers.resources.dll

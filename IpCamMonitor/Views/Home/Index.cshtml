@@ -2,6 +2,12 @@
 @model List<HomeViewModel>
 @{
     Layout = null;
+
+    AjaxOptions ajaxOptions = new AjaxOptions
+    {
+        AllowCache = false,
+        UpdateTargetId = "dashboard"
+    };
 }
 
 <!DOCTYPE html>
@@ -12,6 +18,8 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="~/Content/Home.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
     <title>Index</title>
    
 </head>
@@ -19,22 +27,29 @@
 <div id="main_panel">
     <div class="text-center">
         <h1>ООРКК - Онлайн мониторинг аудиторий</h1>
-    </div class="btn btn-success" >
         @Html.ActionLink("Настройки", "/Index/", "Settings")
+    </div>
+
+    <div id="dashboard">        
         @foreach (var pic in Model)
         {
-
             <div class="panel panel-default">
-                <div class="panel-heading">@pic.Title</div>
+                <div class="panel-heading">@pic.Title</div>               
                 <div class="panel-body">
-                    <img src="@Url.Content(pic.FileName)" width="304" /> @*pic.FileName*@
+                    @Html.Action("GetPicture", new { filename = pic.FileName })
                 </div>
-            </div>           
+            </div>
         }
+    </div>   
 
+    @using (Ajax.BeginForm("GetPicture", ajaxOptions))
+    {
+        <div class="btn btn-success">      
+            <button type="submit">Отобразить</button>
+        </div>
+    }
 
-
-    </div>
+</div>
     
 </body>
 </html>
