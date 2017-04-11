@@ -114,10 +114,6 @@ C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Mo
 C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\obj\Debug\IpCamMonitor.csprojResolveAssemblyReference.cache
 C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\obj\Debug\IpCamMonitor.dll
 C:\Users\Администратор.WIN-4F7QL8GBU72\Desktop\Last IpCamMonitor\Motion-Detection-IPCAM\IpCamMonitor\obj\Debug\IpCamMonitor.pdb
-C:\IpCamMonitor\IpCamMonitor\bin\cvextern.dll
-C:\IpCamMonitor\IpCamMonitor\bin\msvcp120.dll
-C:\IpCamMonitor\IpCamMonitor\bin\msvcr120.dll
-C:\IpCamMonitor\IpCamMonitor\bin\opencv_ffmpeg300.dll
 C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Contrib.dll
 C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.Cuda.dll
 C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.DebuggerVisualizers.VS2010.dll
@@ -149,3 +145,5 @@ C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.UI.GL.xml
 C:\IpCamMonitor\IpCamMonitor\bin\Emgu.CV.VideoStab.xml
 C:\IpCamMonitor\IpCamMonitor\bin\Emgu.Util.xml
 C:\IpCamMonitor\IpCamMonitor\bin\ru\Microsoft.VisualStudio.DebuggerVisualizers.resources.dll
+C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.dll
+C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.pdb

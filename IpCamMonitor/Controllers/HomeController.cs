@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using IpCamMonitor.Models;
 using IpCamMonitor.Models.HomeModel;
 using System.Web.UI;
+using IpCamLibrary;
 
 namespace IpCamMonitor.Controllers
 {
