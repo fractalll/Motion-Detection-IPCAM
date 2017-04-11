@@ -1,26 +1,29 @@
-﻿using Emgu.CV;
-using IpCamCapture;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace Test_Capture_Console
+namespace IpCamCapture
 {
     class Program
     {
         static void Main(string[] args)
-        {           
+        {
+            Console.WriteLine("Connecting to ip-Cams. Please, wait. ");
+
             CameraManager manager = CameraManager.getInstance();
             manager.StartCapture();
 
+            Console.WriteLine("Grabbing images ...");
+            Console.WriteLine("\nPress Ctrl+C to close application");
+
+            Console.CancelKeyPress += (sender, e) =>
+            {
+                Console.WriteLine("Exit...");
+                Environment.Exit(0);
+            };
+
             while (true)
-            { }
+            {
+               
+            }
         }
-
-
-
     }
 }
