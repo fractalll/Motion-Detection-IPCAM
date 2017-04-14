@@ -11,9 +11,14 @@ namespace IpCamLibrary
     public class SettingsManager
     {
         string _filename = "C:\\IPCamMonitorUtil\\config.xml";
-
+        
+        [XmlAttribute("Path_to_VLC.exe")]
+        public string PathVLC_exe { get; set; }
+        
+        
         [XmlArray("Camera_List"), XmlArrayItem("Camera")]
         public List<Settings> SettingsList { get; set; }
+        
 
         public SettingsManager()
         {

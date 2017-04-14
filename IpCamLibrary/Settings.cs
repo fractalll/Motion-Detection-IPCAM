@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace IpCamLibrary
-{
-    public enum SlashType
-    {
-        WebSlash = 0,
-        WinSlash = 1
-    }
-
+{   
     public class Settings
     {       
 
@@ -26,7 +20,7 @@ namespace IpCamLibrary
         public string Port { get; set; }
 
         [XmlAttribute("Url")]
-        public string Url { get; set; }
+        public string Url_ipcam { get; set; }
 
         [XmlAttribute("Login")]
         public string Login { get; set; }
@@ -34,29 +28,19 @@ namespace IpCamLibrary
         [XmlAttribute("Password")]
         public string Pass { get; set; }
 
+        [XmlAttribute("VLC_stream_uri")]
+        public string Uri_vlcstream { get; set; }
+
         [XmlIgnore]
         public int Id { get; set; }
 
-        string GetSlash(SlashType st)
-        {
-            if (st == SlashType.WebSlash)
-                return "/";            
-            return "\\";
-        }
 
-        public string GetImagePath(SlashType st)    
-            => "~" + GetSlash(st) + "Content" + GetSlash(st) + "capture_img" + GetSlash(st) + Ip + ".jpg";
-        
-
-        public string GetConsoleAbsolutePath()
-            => "C:\\IpCamMonitor\\IpCamMonitor\\Content\\capture_img\\" + Ip + ".jpg";
-       
-
+                                 
         public string GetConnectionString()
         {
             if (Ip == null || Login == null || Pass == null)
                 return null;
-            return "rtsp://" + Login + ":" + Pass + "@" + Ip + ":" + Port + "/" + Url;
+            return "rtsp://" + Login + ":" + Pass + "@" + Ip + ":" + Port + "/" + Url_ipcam;
         }
 
         public override string ToString()
@@ -64,7 +48,7 @@ namespace IpCamLibrary
             string result = "Title: " + Title + Environment.NewLine;
             result += "Ip: " + Ip + Environment.NewLine;
             result += "Port: " + Port + Environment.NewLine;
-            result += "Url: " + Url + Environment.NewLine;
+            result += "Url: " + Url_ipcam + Environment.NewLine;
             result += "Login: " + Login + Environment.NewLine;
             result += "Password: " + Pass;
             return result;
