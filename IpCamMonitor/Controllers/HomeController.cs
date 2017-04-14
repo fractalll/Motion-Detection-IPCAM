@@ -15,23 +15,17 @@ namespace IpCamMonitor.Controllers
         SettingsManager manager = new SettingsManager();
 
 
-        [OutputCache(Duration = 0, NoStore = true)]
+        //[OutputCache(Duration = 0, NoStore = true)]
         public ActionResult Index()
         {
             manager.LoadConfig();
             List<HomeViewModel> model = manager.SettingsList.Select(x => new HomeViewModel
             {
                 Title = x.Title,
-                FileName = x.GetImagePath(SlashType.WebSlash)               
+                Uri = x.Uri_vlcstream           
             }).ToList();
 
             return View(model);
-        }
-
-        [OutputCache(Duration = 1)]
-        public PartialViewResult GetPicture(string filename)
-        {            
-            return PartialView((object)filename);
-        }
+        }               
     }
 }

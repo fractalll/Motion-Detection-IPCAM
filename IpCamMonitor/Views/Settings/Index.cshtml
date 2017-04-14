@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label>Url:</label>
-                    @Html.TextBoxFor(x => Model.CurrentSettings.Url, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Url_ipcam, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     <label>Логин:</label>
@@ -73,6 +73,10 @@
                 <div class="form-group">
                     <label>Пароль:</label>
                     @Html.TextBoxFor(x => Model.CurrentSettings.Pass, new { @class = "form-control", type = "password"})
+                </div>
+                <div class="form-group">
+                    <label>Uri перекодированного видеопотока:</label>
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Uri_vlcstream, new { @class = "form-control" })
                 </div>
 
                 <div class="text-center">
