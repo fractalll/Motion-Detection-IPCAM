@@ -22,7 +22,7 @@ namespace IpCamMonitor.Controllers
             List<HomeViewModel> model = manager.SettingsList.Select(x => new HomeViewModel
             {
                 Title = x.Title,
-                Uri = x.Uri_vlcstream           
+                Uri = manager.Ip_vlcstream + ":" + x.Port_vlcstream           
             }).ToList();
 
             return View(model);

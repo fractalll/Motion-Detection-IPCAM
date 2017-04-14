@@ -9,7 +9,6 @@ namespace IpCamLibrary
 {   
     public class Settings
     {       
-
         [XmlAttribute("Title")]
         public string Title { get; set; }
 
@@ -28,8 +27,8 @@ namespace IpCamLibrary
         [XmlAttribute("Password")]
         public string Pass { get; set; }
 
-        [XmlAttribute("VLC_stream_uri")]
-        public string Uri_vlcstream { get; set; }
+        [XmlAttribute("VLC_stream_Port")]
+        public string Port_vlcstream { get; set; }
 
         [XmlIgnore]
         public int Id { get; set; }

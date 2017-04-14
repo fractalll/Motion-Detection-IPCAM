@@ -41,8 +41,7 @@ namespace IpCamCapture
             foreach (Settings set in sm.SettingsList)
             {
                 string _connection = set.GetConnectionString();
-                string _path = set.GetConsoleAbsolutePath();
-                _camList.Add(new Camera(_connection, _path));
+                _camList.Add(new Camera(_connection));
             }
         }
 
@@ -51,9 +50,7 @@ namespace IpCamCapture
             if (_camList == null || _camList.Count == 0)
                 return;
             foreach (var cam in _camList)
-                cam.StartCapture();
-
-            //_camList[0].StartCapture();
+                cam.StartCapture();                
         }
 
         public void StopCapture()

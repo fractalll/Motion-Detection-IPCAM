@@ -10,14 +10,12 @@ namespace IpCamCapture
 {
     public class Camera //ntcnnnnn
     {
-        Capture _capture;
-        string _outputImagePath;
+        Capture _capture;        
         string _connectionString;
 
-        public Camera(string ConnectionString, string OutputImagePath)
+        public Camera(string ConnectionString)
         {         
-            _connectionString = ConnectionString;
-            _outputImagePath = OutputImagePath;
+            _connectionString = ConnectionString;            
         }
    
         public void StartCapture()
@@ -35,7 +33,7 @@ namespace IpCamCapture
                 if (!_capture.Grab())
                     throw new Exception("Невозможно захватить изображение!");
 
-                _capture.Start();
+               // _capture.Start();
             }
         }
 
@@ -49,18 +47,7 @@ namespace IpCamCapture
         {
             GC.Collect();
             Mat image = new Mat();
-            _capture.Retrieve(image);
-
-            string tempfile = _outputImagePath + "_tmp.jpg";
-            string backupfile = _outputImagePath + "_backup.jpg";
-
-            if (DateTime.Now.Second % 2 == 0)
-                image.Save(_outputImagePath);
-            /*            
-            image.Save(tempfile);
-            File.Replace(tempfile, _outputImagePath, backupfile );
-            File.Delete(backupfile);
-            */
+            _capture.Retrieve(image);            
         }
     }
 }

@@ -7,8 +7,8 @@
     <ProjectGuid>{DD98800E-619D-4E2D-B090-31FFD07DFC18}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Test_Capture_Console</RootNamespace>
-    <AssemblyName>Test Capture Console</AssemblyName>
+    <RootNamespace>IpCamCapture</RootNamespace>
+    <AssemblyName>IpCamCapture</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -81,6 +81,66 @@
     <Reference Include="Emgu.Util">
       <HintPath>..\..\..\..\..\..\..\Emgu\emgucv-windows-universal 3.0.0.2157\bin\Emgu.Util.dll</HintPath>
     </Reference>
+    <Reference Include="Media, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Codec, Version=1.0.7.41643, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Codec.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Codecs.Image, Version=1.0.7.41646, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Codecs.Image.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Codecs.Video.H264, Version=1.0.7.41646, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Codecs.Video.H264.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Common, Version=1.0.7.41642, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Compression, Version=1.0.7.41643, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Compression.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Container, Version=1.0.7.41643, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Container.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Containers.Mpeg, Version=1.0.7.41645, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Containers.Mpeg.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Ntp, Version=1.0.7.41643, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Ntp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Rtmp, Version=1.0.7.41644, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Rtmp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Rtp, Version=1.0.7.41643, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Rtp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.RtpTools, Version=1.0.7.41644, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.RtpTools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Rtsp, Version=1.0.7.41644, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Rtsp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.RtspServer, Version=1.0.7.41647, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.RtspServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Media.Sdp, Version=1.0.7.41643, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\net7mma.0.111192.1\lib\net452\Media.Sdp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -96,6 +156,8 @@
   <ItemGroup>
     <Compile Include="Classes\Camera.cs" />
     <Compile Include="Classes\CameraManager.cs" />
+    <Compile Include="Classes\VLCCommand.cs" />
+    <Compile Include="Classes\VLCVideoserver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
