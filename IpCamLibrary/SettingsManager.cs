@@ -25,10 +25,7 @@ namespace IpCamLibrary
         {
             _filename = localPath;
             SettingsList = new List<Settings>();
-        }        
-
-        [XmlElement(ElementName = "Exe_VLC")]
-        public string PathVLCexe { get; set; }
+        }                      
 
         [XmlElement(ElementName = "Ip_VLC_Stream")]
         public string Ip_vlc { get; set; }
@@ -60,8 +57,7 @@ namespace IpCamLibrary
         /// <summary> Устаналивает настрйки из другого экземпляра SettingsManager </summary>     
         void SettingsFrom(SettingsManager sm)
         {
-            SettingsList = sm.SettingsList;
-            PathVLCexe = sm.PathVLCexe;
+            SettingsList = sm.SettingsList;           
             Ip_vlc = sm.Ip_vlc;
         }
 

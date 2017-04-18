@@ -17,11 +17,11 @@
         {
             var sel = document.getElementById("CurrentSettings_Id"); 
             var title = sel.options[sel.selectedIndex].text; 
-
+             
             if (confirm("Вы точно хотите удалить камеру: " + title + "?"))
             {
                 var id = document.getElementById("hide_id").value;               
-                document.location.href = "/Settings/DeleteCamera/" + id;
+                document.location.href = "IpCamMonitor/Settings/DeleteCamera/" + id; //IPCamMotitor - переделать чтобы было универсально
             }          
         }
     </script>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="form-group">
                     <label>Порт перекодированного видеопотока:</label>
-                    @Html.TextBoxFor(x => Model.CurrentSettings.Port_vlcstream, new { @class = "form-control" })
+                    @Html.TextBoxFor(x => Model.CurrentSettings.Port_vlc, new { @class = "form-control" })
                 </div>
 
                 <div class="text-center">
