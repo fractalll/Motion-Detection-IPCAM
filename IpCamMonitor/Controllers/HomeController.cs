@@ -13,16 +13,14 @@ namespace IpCamMonitor.Controllers
     public class HomeController : Controller
     {
         SettingsManager manager = new SettingsManager();
-
-
-        //[OutputCache(Duration = 0, NoStore = true)]
+                     
         public ActionResult Index()
         {
             manager.LoadConfig();
             List<HomeViewModel> model = manager.SettingsList.Select(x => new HomeViewModel
             {
                 Title = x.Title,
-                Uri = manager.Ip_vlcstream + ":" + x.Port_vlcstream           
+                Uri = manager.Ip_vlc + ":" + x.Port_vlc           
             }).ToList();
 
             return View(model);

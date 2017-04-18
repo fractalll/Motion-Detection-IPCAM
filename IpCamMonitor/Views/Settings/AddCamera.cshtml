@@ -53,11 +53,11 @@
                     </div>
                     <div class="form-group">
                         <label>Uri перекодированного видеопотока:</label>
-                        @Html.TextBoxFor(x => Model.Port_vlcstream, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => Model.Port_vlc, new { @class = "form-control" })
                     </div>
 
                     <div class="text-center">
-                        <a href="/Settings/Index" class="btn btn-primary">Отмена</a>
+                        @Html.ActionLink("Отмена", "/Index/", "Settings", new { @class = "btn btn-primary" })
                         <input type="submit" value="Сохранить настройки" class="btn btn-success">
                     </div>
             }

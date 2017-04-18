@@ -10,10 +10,12 @@ namespace IpCamCapture
     class VLCVideoserver
     {
         SettingsManager set_manager;
+        string pathToSettingsXml;
 
         public VLCVideoserver()
         {
-            set_manager = new SettingsManager();
+            pathToSettingsXml = "C:\\inetpub\\wwwroot\\IpCamMonitor\\config.xml";
+            set_manager = new SettingsManager(pathToSettingsXml); 
             LoadSettings();
         }      
 
@@ -26,7 +28,7 @@ namespace IpCamCapture
         {
             foreach(var cam in set_manager.SettingsList)
             {
-                VLCCommand cmd = new VLCCommand(set_manager.PathVLC_exe, cam.GetConnectionString(), cam.Port_vlcstream);
+                VLCCommand cmd = new VLCCommand(set_manager.PathVLCexe, cam.GetConnectionString(), cam.Port_vlc);
                 cmd.Execute();
             }
         }

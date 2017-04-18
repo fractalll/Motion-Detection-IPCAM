@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Hosting;
 using System.Xml.Serialization;
 
 namespace IpCamLibrary
@@ -11,32 +12,31 @@ namespace IpCamLibrary
     [Serializable]
     public class SettingsManager
     {
-        string _filename = "C:\\IPCamMonitorUtil\\config.xml";
+
+        string _filename;
+
+        public SettingsManager()
+        {            
+            _filename = HostingEnvironment.MapPath("~/config.xml");
+            SettingsList = new List<Settings>();
+        }
+        
+        public SettingsManager(string localPath)
+        {
+            _filename = localPath;
+            SettingsList = new List<Settings>();
+        }        
 
         [XmlElement(ElementName = "Exe_VLC")]
-        public string PathVLC_exe { get; set; }
+        public string PathVLCexe { get; set; }
 
         [XmlElement(ElementName = "Ip_VLC_Stream")]
-        public string Ip_vlcstream { get; set; }
+        public string Ip_vlc { get; set; }
 
         [XmlArray("Camera_List"), XmlArrayItem("Camera")]
         public List<Settings> SettingsList { get; set; }
         
-        public void Init()
-        {      
-            PathVLC_exe = "C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe";
-            Ip_vlcstream = "10.210.50.50";            
-        }
-
-
-        public SettingsManager()
-        {
-            SettingsList = new List<Settings>();
-        }
-
-        /// <summary>
-        /// Сериализует настройки в XML файл конфигурации
-        /// </summary>
+        /// <summary> Сериализует настройки в XML файл конфигурации </summary>
         public void SaveConfig()
         {
             try
@@ -56,10 +56,17 @@ namespace IpCamLibrary
                 throw new ApplicationException("При сохранении файла конфигурации произошла следующая ошибка: " + ex.Message);
             }
         }
+                
+        /// <summary> Устаналивает настрйки из другого экземпляра SettingsManager </summary>     
+        void SettingsFrom(SettingsManager sm)
+        {
+            SettingsList = sm.SettingsList;
+            PathVLCexe = sm.PathVLCexe;
+            Ip_vlc = sm.Ip_vlc;
+        }
 
-        /// <summary>
-        /// Десериализует настройки из XML файла конфигурации
-        /// </summary>
+
+        /// <summary> Десериализует настройки из XML файла конфигурации </summary>
         public void LoadConfig()
         {
             try
@@ -73,9 +80,7 @@ namespace IpCamLibrary
                     fs.Close();
                 }
 
-                SettingsList = sm.SettingsList;
-                PathVLC_exe = sm.PathVLC_exe;
-                Ip_vlcstream = sm.Ip_vlcstream;
+                SettingsFrom(sm);               
 
                 int i = 0;
                 foreach (var cam in SettingsList)
@@ -86,7 +91,5 @@ namespace IpCamLibrary
                 throw new ApplicationException("При получении файла конфигурации произошла следующая ошибка: " + ex.Message);
             }
         }
-
-
     }
 }

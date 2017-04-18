@@ -28,7 +28,7 @@ namespace IpCamLibrary
         public string Pass { get; set; }
 
         [XmlAttribute("VLC_stream_Port")]
-        public string Port_vlcstream { get; set; }
+        public string Port_vlc { get; set; }
 
         [XmlIgnore]
         public int Id { get; set; }

@@ -21,7 +21,7 @@ namespace IpCamMonitor.Controllers
             settingsManager = new SettingsManager();
             model = new SettingsViewModel();
             UpdateModelFromXML();
-            SwichCurrentSettings(0);             
+            SwichCurrentSettingsById(0);             
         }               
 
         /// <summary>
@@ -50,9 +50,9 @@ namespace IpCamMonitor.Controllers
         /// <summary>
         /// Переключает настройки, используя id 
         /// </summary>        
-        private void SwichCurrentSettings(int id)
+        private void SwichCurrentSettingsById(int id)
         {
-            // BUG: при отсутсвии нужного id, если файл пус, например, или вручную вбит адрес
+            // BUG: при отсутсвии нужного id, если файл пусn, например, или вручную вбит адрес
             model.CurrentSettings = settingsManager.SettingsList.Where(x => x.Id == id).Single();
         }
 
@@ -97,7 +97,7 @@ namespace IpCamMonitor.Controllers
             settingsManager.SaveConfig();
             UpdateModelFromXML();
 
-            SwichCurrentSettings(0);
+            SwichCurrentSettingsById(0);
             return View("Index", model);
         }
 
@@ -114,7 +114,7 @@ namespace IpCamMonitor.Controllers
             settingsManager.SaveConfig();
             UpdateModelFromXML();
 
-            SwichCurrentSettings(set.Id);
+            SwichCurrentSettingsById(set.Id);
             return View("Index", model);
         }
     }

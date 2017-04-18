@@ -147,3 +147,4 @@ C:\IpCamMonitor\IpCamMonitor\bin\Emgu.Util.xml
 C:\IpCamMonitor\IpCamMonitor\bin\ru\Microsoft.VisualStudio.DebuggerVisualizers.resources.dll
 C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.dll
 C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.pdb
+C:\IpCamMonitor\IpCamMonitor\bin\config.xml
