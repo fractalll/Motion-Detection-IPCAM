@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 namespace IpCamCapture
 {
     class VLCCommand
-    {
-        string _pathToEXE;
+    {       
         string _connectionString;
         string _transcodeParams;
         string _dst;
@@ -18,8 +17,7 @@ namespace IpCamCapture
         public VLCCommand(string CamConnectionString, string OutputPort)
         {
             try
-            {
-                _pathToEXE = ConfigurationManager.AppSettings["PathToVLCexe"];
+            {                
                 _transcodeParams = ConfigurationManager.AppSettings["TranscodeParams"];
             }
             catch (Exception ex)
@@ -30,19 +28,9 @@ namespace IpCamCapture
             _dst = OutputPort;
         }    
 
-        public override string ToString()        
+        public string GetString()        
         {
             return "-R " + _connectionString + " --sout \"" + _transcodeParams + _dst + "}\"";
         }
-
-        /// <summary>
-        /// Выполняет команду в командной строке
-        /// </summary>
-        public void Execute()
-        {
-            Console.WriteLine(ToString());            
-            System.Diagnostics.Process.Start(_pathToEXE, this.ToString());
-        }
-
     }
 }

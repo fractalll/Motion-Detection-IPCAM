@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IpCamCapture
 {
-    public class Camera //ntcnnnnn
+    public class Camera 
     {
         Capture _capture;        
         string _connectionString;

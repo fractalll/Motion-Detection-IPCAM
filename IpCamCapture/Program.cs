@@ -7,37 +7,32 @@ namespace IpCamCapture
     {
         static void Main(string[] args)
         {
-            if (args.Length == 0)
+            if (args.Length != 0)
             {
-               
-                Console.WriteLine("• ▌ ▄ ·.                ▐ ▄     ▪      ▄▄▄▄▄              ▄▄▄  ");
-                Console.WriteLine("·██ ▐███▪    ▪         •█▌▐█    ██     •██      ▪         ▀▄ █·");
-                Console.WriteLine("▐█ ▌▐▌▐█·     ▄█▀▄     ▐█▐▐▌    ▐█·     ▐█.▪     ▄█▀▄     ▐▀▀▄ ");
-                Console.WriteLine("██ ██▌▐█▌    ▐█▌.▐▌    ██▐█▌    ▐█▌     ▐█▌·    ▐█▌.▐▌    ▐█•█▌");
-                Console.WriteLine("▀▀  █▪▀▀▀     ▀█▄▀▪    ▀▀ █▪    ▀▀▀     ▀▀▀      ▀█▄▀▪    .▀  ▀");
+                Route(args[0]);
+                Exit();
+            }
 
-                Console.WriteLine("Welcome to video streaming program.\nPrint 'q' to exit. ");
-                for (int i = 0; i < 120; i++)
-                {
-                    Console.Write("#");
-                }
+            Console.WriteLine("Welcome to video streaming program.\nPrint 'q' to exit. ");
 
-                while (true)
-                {
-                    Console.WriteLine("Please, input command");
-                    string cmd = Console.ReadLine();
-                    switch (cmd)
-                    {
-                        case "q": Exit(); break;
-                        case "start": Start(); break;
-                        //case "q": Exit(); break;
-                        default:
-                            break;
-                    }
-                }
-            } 
-              
+            while (true)
+            {
+                Console.WriteLine("Please, input command");
+                string cmd = Console.ReadLine();
+                Route(cmd);
+            }
+        }         
+
+        public static void Route(string cmd)
+        {
+            switch (cmd)
+            {
+                case "q": Exit(); break;
+                case "start": Start(); break;
+                default: break;
+            }
         }
+
         public static void Exit()
         {
             Environment.Exit(0);
