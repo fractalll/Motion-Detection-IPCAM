@@ -1,21 +1,8 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Управлние";
 }
 
-<!DOCTYPE html>
+<div class="panel-success">
+    @Html.ActionLink("Запустить трансляцию", "StartTranslation", new { @class = "btn btn-pribmary" })
+</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="~/Content/Style.css" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <title>Управление приложением</title>
-</head>
-<body>
-    <div class="panel-success">
-        @Html.ActionLink("Запустить трансляцию", "StartTranslation")
-    </div>
-</body>
-</html>

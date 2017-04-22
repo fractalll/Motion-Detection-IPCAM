@@ -1,26 +1,12 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Результат операции";
 }
 
-<!DOCTYPE html>
+<div> 
+    @ViewBag.ServiceMsg
+</div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>StartTranslation</title>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-2.1.1.js"></script>
-</head>
-<body>  
+<div>
+    @Html.ActionLink("Назад", "Index", new { @class="btn btn-success" })
+</div>
 
-    <div> 
-        @ViewBag.ServiceMsg
-    </div>
-
-    <div>
-        @Html.ActionLink("Назад", "Index", new { @class="btn btn-success" })
-    </div>
-</body>
-</html>

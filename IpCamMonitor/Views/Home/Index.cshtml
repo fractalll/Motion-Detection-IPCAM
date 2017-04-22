@@ -1,27 +1,12 @@
 ﻿@using IpCamMonitor.Models.HomeModel
 @model List<HomeViewModel>
-@{
-    Layout = null;
+@{   
+    ViewBag.Title = "ООРКК - Онлайн мониторинг аудиторий";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
-    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
-    <link href="~/Content/Home.css" rel="stylesheet" />
-    <script src="~/Scripts/jquery-2.1.1.js"></script>
-    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <title>Index</title>
-   
-</head>
-<body>
 <div id="main_panel">
     <div class="text-center">
-        <h1>ООРКК - Онлайн мониторинг аудиторий</h1>
-        @Html.ActionLink("Настройки", "/Index/", "Settings")
+        <h1>ООРКК - Онлайн мониторинг аудиторий</h1>      
     </div>
 
     <div id="dashboard">        
@@ -38,6 +23,4 @@
     </div>      
 
 </div>
-    
-</body>
-</html>
+   
