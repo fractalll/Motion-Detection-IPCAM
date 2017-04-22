@@ -5,9 +5,7 @@
 }
 
 <div id="main_panel">
-    <div class="text-center">
-        <h1>ООРКК - Онлайн мониторинг аудиторий</h1>      
-    </div>
+   <br />
 
     <div id="dashboard">        
         @foreach (var pic in Model)
@@ -15,8 +13,15 @@
             <div class="panel panel-default">
                 <div class="panel-heading">@pic.Title</div>               
                 <div class="panel-body" style="padding: 1px">
-                    @{string src = "http://" + pic.Uri;}
-                    <img src="@src" width="304" />
+                    @{
+                        string src = "http://" + pic.Uri;
+                        string pseudo_addr = pic.Uri.Replace(':', 'p').Replace('.', 'd'); 
+                        string href = Url.Action("Zoom") + "/" + pseudo_addr;
+                        
+                    }
+                    <a href=@href>
+                        <img src="@src" width="304" />
+                    </a>
                 </div>
             </div>
         }

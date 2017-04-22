@@ -24,6 +24,14 @@ namespace IpCamMonitor.Controllers
             }).ToList();
 
             return View(model);
-        }               
+        }           
+        
+        public ActionResult Zoom(string id)
+        {   
+            ViewBag.ImageUrl = "http://" + id.Replace('d', '.').Replace('p', ':');
+
+            return View();
+        }
+            
     }
 }
