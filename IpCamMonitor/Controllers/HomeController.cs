@@ -10,6 +10,7 @@ using IpCamLibrary;
 
 namespace IpCamMonitor.Controllers
 {
+    [Authorize(Roles = "Domain Admins, UCKO Users, Laborants")]
     public class HomeController : Controller
     {
         SettingsManager manager = new SettingsManager();

@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace IpCamMonitor.Controllers
 {
+    [Authorize(Roles = "Domain Admins")]
     public class SettingsController : Controller
     {
         SettingsManager settingsManager;

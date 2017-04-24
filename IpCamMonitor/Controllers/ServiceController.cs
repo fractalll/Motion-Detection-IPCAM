@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace IpCamMonitor.Controllers
 {
+    [Authorize(Roles = "Domain Admins")]
     public class ServiceController : Controller
     {
         // GET: Service

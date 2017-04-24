@@ -14,7 +14,6 @@
     <Camera Title="1-431" Ip="10.210.52.4" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8884" />
     <Camera Title="1-429" Ip="10.210.52.5" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8885" />
     <Camera Title="1-425" Ip="10.210.52.10" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8810" />
-    <Camera Title="Server" Ip="10.210.52.13" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8813" />
-    <Camera Title="22" />
+    <!--  <Camera Title="Server" Ip="10.210.52.13" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8813" />  -->
   </Camera_List>
 </SettingsManager>
