@@ -22,5 +22,26 @@ namespace IpCamLibrary
                 throw ex;
             }            
         }
+
+        public static bool Kill(string name)
+        {
+            try
+            {
+                Process[] proc = Process.GetProcessesByName(name);
+                if (proc.Length == 0)
+                    return false;
+                else
+                    foreach (var p in proc)
+                    {
+                        p.Kill();
+                        Console.WriteLine(String.Format("[{0}] {1} - has killed", p.Id, p.ProcessName));
+                    }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return true;
+        }
     }
 }
