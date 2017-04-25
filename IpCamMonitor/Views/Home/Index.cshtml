@@ -2,30 +2,30 @@
 @model List<HomeViewModel>
 @{   
     ViewBag.Title = "ООРКК - Онлайн мониторинг аудиторий";
+    ViewBag.background = "background-color: #262626 !important";
 }
 
-<div id="main_panel">
-   <br />
 
-    <div id="dashboard">        
-        @foreach (var pic in Model)
-        {
+    <div id="main_panel">
+        <br />
+        <div id="dashboard">
+            @foreach (var pic in Model)
+            {
             <div class="panel panel-default">
-                <div class="panel-heading">@pic.Title</div>               
-                <div class="panel-body" style="padding: 1px">
+                <div class="panel-heading">@pic.Title</div>
+                <div class="panel-body">
                     @{
                         string src = "http://" + pic.Uri;
-                        string pseudo_addr = pic.Uri.Replace(':', 'p').Replace('.', 'd'); 
+                        string pseudo_addr = pic.Uri.Replace(':', 'p').Replace('.', 'd');
                         string href = Url.Action("Zoom") + "/" + pseudo_addr;
-                        
                     }
                     <a href=@href>
                         <img src="@src" width="304" />
                     </a>
                 </div>
             </div>
-        }
-    </div>      
+            }
+        </div>
+    </div>
 
-</div>
    
