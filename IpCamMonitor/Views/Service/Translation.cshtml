@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Результат операции";
+    string backURL = @Url.Action("Index");
+}
+
+<div> 
+    @ViewBag.TranslationResult
+</div>
+
+<div>
+    <a class="btn btn-default" href=@backURL>Назад</a>
+</div>
+

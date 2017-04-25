@@ -17,17 +17,18 @@ namespace IpCamMonitor.Controllers
             return View();
         }
 
-        public ActionResult StartTranslation()
+        public ActionResult Translation(string id)
         {
-            string path = ConfigurationManager.AppSettings["pathToCapture"];
-            ViewBag.ServiceMsg = "Трансляция успешно запущена";
+            string IpCamCapture = ConfigurationManager.AppSettings["pathToCapture"];
+            
             try
-            {
-                WinApp.Execute(path, "start");
+            {                
+                WinApp.Execute(IpCamCapture, id, false);
+                ViewBag.TranslationResult = "Команда " + id + " выполнена";
             }
             catch (Exception ex)
             {
-                ViewBag.ServiceMsg = "При зауске трансляции прозошла ошибка: " + ex.Message;
+                ViewBag.TranslationResult = "Прозошла ошибка: " + ex.Message;
             }
            
             return View();

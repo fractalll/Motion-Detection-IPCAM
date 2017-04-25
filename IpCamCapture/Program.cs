@@ -11,7 +11,7 @@ namespace IpCamCapture
         {
             if (args.Length != 0)
             {
-                Route(args[0]);
+                Route(args[0]);                
                 Exit();
             }
 
@@ -76,6 +76,7 @@ namespace IpCamCapture
 
         public static void Start()
         {
+            Kill();
             (new VLCVideoserver()).Start();
         }
     }

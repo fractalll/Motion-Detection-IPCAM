@@ -1,8 +1,15 @@
 ﻿@{
     ViewBag.Title = "Управлние";
+    string killAction = @Url.Action("Translation/kill");
+    string restartAction = @Url.Action("Translation/restart");
+
 }
 
-<div class="panel-success">
-    @Html.ActionLink("Запустить трансляцию", "StartTranslation", new { @class = "btn btn-pribmary" })
+<div class="panel-success">    
+    <div class="manager">
+        <a class="btn btn-danger" href=@killAction>Остановить трансляцию</a>
+        <br />
+        <a class="btn btn-primary" href=@restartAction>Перезапустить трансляцию</a>
+    </div>
 </div>
 
