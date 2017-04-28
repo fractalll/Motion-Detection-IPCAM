@@ -148,3 +148,4 @@ C:\IpCamMonitor\IpCamMonitor\bin\ru\Microsoft.VisualStudio.DebuggerVisualizers.r
 C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.dll
 C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.pdb
 C:\IpCamMonitor\IpCamMonitor\bin\config.xml
+C:\IpCamMonitor\IpCamMonitor\bin\Content\favicon.ico

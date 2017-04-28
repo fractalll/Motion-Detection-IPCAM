@@ -1,11 +1,12 @@
 ﻿using IpCamLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IpCamCapture
+namespace IpCamMotionDetection
 {
     public class CameraManager
     {
@@ -18,15 +19,24 @@ namespace IpCamCapture
         }
 
         private CameraManager()
-        {
-            UpdateCamsFromConfig();
+        {           
         }
 
         List<Camera> _camList;
 
-        public void UpdateCamsFromConfig()
+        /// <summary>
+        /// Устанавливает интервал сбора данных в секундах
+        /// </summary>
+        public void SetCaptureInterval(int seconds)
         {
-            SettingsManager sm = new SettingsManager();
+            if (seconds < 1 || _camList == null) return;
+            foreach (var cam in _camList)
+                cam.CycleInterval = seconds;
+        }
+        
+        public void LoadCamsFromConfig(string pathToConfig)
+        {            
+            SettingsManager sm = new SettingsManager(pathToConfig);
             try
             {
                 sm.LoadConfig();
@@ -40,8 +50,9 @@ namespace IpCamCapture
 
             foreach (Settings set in sm.SettingsList)
             {
-                string _connection = set.GetConnectionString();
-                _camList.Add(new Camera(_connection));
+                string connectionString = "http://" + sm.Ip_vlc + ":" + set.Port_vlc;
+
+                _camList.Add(new Camera(connectionString));
             }
         }
 
