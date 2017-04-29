@@ -24,6 +24,12 @@ namespace IpCamMotionDetection
 
         List<Camera> _camList;
 
+        public List<Camera> GetCams()
+        {
+            return new List<Camera>(_camList);
+        }
+
+
         /// <summary>
         /// Устанавливает интервал сбора данных в секундах
         /// </summary>
@@ -56,15 +62,24 @@ namespace IpCamMotionDetection
             }
         }
 
-        public void StartCapture()
+        public void StartAll()
         {
             if (_camList == null || _camList.Count == 0)
                 return;
             foreach (var cam in _camList)
-                cam.StartCapture();                
+            {
+                cam.StartCapture();
+                break;
+            }
+                          
         }
 
-        public void StopCapture()
+        public void Start1()
+        {
+            _camList[0].StartCapture();
+        }
+
+        public void StopAll()
         {
             if (_camList == null || _camList.Count == 0) return;
             foreach (var cam in _camList)

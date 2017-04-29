@@ -25,10 +25,10 @@ namespace IpCamMotionDetection
         public void StartCapture()
         {            
             MotionDetector md = new MotionDetector(_connectionString, CycleInterval);           
-            md.DataRecived += OnDataRecived;
-
+            md.DataRecived += OnDataRecived;            
             Thread t1 = new Thread(md.Start);
-            t1.Start();           
+            t1.Start();  
+            Console.WriteLine("md Started in new Thread");       
         }
 
         private void OnDataRecived(object sender, DetectingEventArgs e)

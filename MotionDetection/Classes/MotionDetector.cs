@@ -46,15 +46,24 @@ namespace IpCamMotionDetection
         MotionHistory _motionHistory;           
         public void Start()
         {
-            _motionHistory = new MotionHistory(
-             Duration,  //in second, the duration of motion history you wants to keep
-             MaxDelta,  //in second, maxDelta for cvCalcMotionGradient
-             MinDelta); //in second, minDelta for cvCalcMotionGradient
-                         
-            _capture = new Capture(_connectionString);
-            _capture.ImageGrabbed += ProcessFrame;
-            _capture.Start();
-            Console.WriteLine("Start camera "+_connectionString);
+            Console.WriteLine("in thread, Start()");
+            try
+            {
+                _motionHistory = new MotionHistory(
+                 Duration,  //in second, the duration of motion history you wants to keep
+                 MaxDelta,  //in second, maxDelta for cvCalcMotionGradient
+                 MinDelta); //in second, minDelta for cvCalcMotionGradient
+
+                _capture = new Capture(_connectionString);
+                _capture.ImageGrabbed += ProcessFrame;
+                _capture.Start();
+                Console.WriteLine("Start camera " + _connectionString);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine("in thread, Start() out");
         }
 
 
@@ -64,6 +73,7 @@ namespace IpCamMotionDetection
         BackgroundSubtractor _forgroundDetector; 
         private void ProcessFrame(object sender, EventArgs e)
         {
+            Console.Write("#");
             image = new Mat();
             _capture.Retrieve(image);
                        
@@ -133,8 +143,7 @@ namespace IpCamMotionDetection
         DateTime _cycleStart;
         private void AddData(double motions, double pixels)
         {
-            GC.Collect();
-            //Console.Write("#");       
+            GC.Collect();              
 
             if (total_count == 0)           
                 _cycleStart = DateTime.Now;     

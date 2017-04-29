@@ -12,21 +12,23 @@ namespace IpCamMotionDetection
     class Program
     {
         static void Main(string[] args)
-        {
+        {  
+            /*
             CameraManager manager = CameraManager.getInstance();
 
             string _XML = ConfigurationManager.AppSettings["PathToSettingsXML"];
             manager.LoadCamsFromConfig(_XML);
+            manager.StartAll();
+            */
 
-            manager.StartCapture();
-
-            /*
-            string cam = "http://10.210.50.50:8881/mjpg/video.mjpg"; 
-            MotionDetector md = new MotionDetector(cam);           
-            md.CycleInterval = 1;
+            string config_XML = ConfigurationManager.AppSettings["PathToSettingsXML"];
+            string[] cams = Loader.GetCamsUri(config_XML);
+            
+            
+                                    
+            MotionDetector md = new MotionDetector(cams[6]);           
+            md.CycleInterval = 5;
             md.DataRecived += Md_DataRecived;
-
-
 
             Thread t1 = new Thread(md.Start);
             t1.Start();
@@ -34,14 +36,22 @@ namespace IpCamMotionDetection
             while (true)
             {
                 string cmd = Console.ReadLine();              
-            }*/
+            }
         }
-
+        
        
         private static void Md_DataRecived(object sender, DetectingEventArgs e)
         {
-            
-            Console.WriteLine(e.AverageMotions+" " + DateTime.Now);
+            SaveToDatabase(e);           
+        }
+
+        public static void SaveToDatabase(DetectingEventArgs e)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Motions " + e.AverageMotions +
+                              " Time Start " + e.TimeStart +
+                              " Source " + e.DataSource
+            );
         }
     }
 }
