@@ -12,43 +12,23 @@ namespace IpCamMotionDetection
     class Program
     {
         static void Main(string[] args)
-        {  
-            /*
-            CameraManager manager = CameraManager.getInstance();
-
-            string _XML = ConfigurationManager.AppSettings["PathToSettingsXML"];
-            manager.LoadCamsFromConfig(_XML);
-            manager.StartAll();
-            */
-
+        {             
             string config_XML = ConfigurationManager.AppSettings["PathToSettingsXML"];
-            string[] cams = Loader.GetCamsUri(config_XML);
+            string[] cams = DetectionController.LoadCamsFromConfig(config_XML);
 
-
-            string[] usedcams = new string[2] { cams[0], cams[6] };
-
-            List<Thread> threads = new List<Thread>();
-
-            for (int i = 0; i < usedcams.Length; i++)
-            {
-                MotionDetector detector = new MotionDetector(usedcams[i]);
-                detector.CycleInterval = 1;
-                detector.DataRecived += OnDataRecived;
-                threads.Add(new Thread(detector.Start));
-            }
-
-            foreach (var t in threads)                      
-                t.Start();
-              
+            DetectionController dc = new DetectionController();
+            dc.DataRecived += OnDataRecived;
+            dc.CycleInterval = 5;
+            dc.StartCams(cams[0], cams[6]);
+                        
             while (true)
             {
                 Thread.Sleep(5000);                
             }
         }
-        public static bool isRecived = false;
+      
         private static void OnDataRecived(object sender, DetectingEventArgs e)
         {
-            isRecived = true;
             SaveToDatabase(e);           
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IpCamMotionDetection
 {
-    class DetectingEventArgs : EventArgs
+    public class DetectingEventArgs : EventArgs
     {
         public double AverageMotions { get; set; }
 

@@ -96,10 +96,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Camera.cs" />
-    <Compile Include="Classes\CameraManager.cs" />
     <Compile Include="Classes\DetectingEventArgs.cs" />
-    <Compile Include="Classes\Loader.cs" />
+    <Compile Include="Classes\DetectionController.cs" />
     <Compile Include="Classes\MotionDetector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
