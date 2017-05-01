@@ -20,4 +20,17 @@ namespace IpCamMotionDetection
 
         public string DataSource { get; set; }
     }
+
+    public static class Ext
+    {
+        public static void PrintConsole(this DetectingEventArgs e)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Source " + e.DataSource +
+                              " Motions " + e.AverageMotions +
+                              " Count " + e.TotalCount +
+                              " Time " + e.TimeStart.Hour + ":" + e.TimeStart.Minute + ":" + e.TimeStart.Second
+            );
+        }
+    }
 }

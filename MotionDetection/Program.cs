@@ -19,24 +19,25 @@ namespace IpCamMotionDetection
 
             DetectionController dc = new DetectionController();
             dc.DataRecived += OnDataRecived;
-            dc.CycleInterval = 60;
+            dc.CycleInterval = 1;
             dc.StartCams(cams[0], cams[6]);
 
             while (true)
-            {
-                Thread.Sleep(5000);
+            {               
+                var key = Console.ReadKey(false);
+                if (key.KeyChar == 'q')
+                    Environment.Exit(0);
             }
         }
 
         private static void OnDataRecived(object sender, DetectingEventArgs e)
-        {
-            SaveToConsole(e);
+        {            
+            e.PrintConsole();
             lock (locker)
             {
                 SaveToFile(e);
             }
         }
-
 
         static object locker = new object();
         public static void SaveToFile(DetectingEventArgs e)
@@ -48,25 +49,6 @@ namespace IpCamMotionDetection
                                  " Count " + e.TotalCount +
                                  " Time " + e.TimeStart.Hour + ":" + e.TimeStart.Minute + ":" + e.TimeStart.Second);
             };
-        }
-
-
-        
-    
-
-
-
-
-
-        public static void SaveToConsole(DetectingEventArgs e)
-        {
-            Console.WriteLine();
-            Console.WriteLine("Source " + e.DataSource + 
-                              " Motions " + e.AverageMotions +
-                              " Count " + e.TotalCount + 
-                              " Time " + e.TimeStart.Hour + ":" + e.TimeStart.Minute + ":" + e.TimeStart.Second
-                             
-            );
-        }
-    }
+        }   
+    }    
 }

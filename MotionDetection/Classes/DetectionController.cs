@@ -21,21 +21,61 @@ namespace IpCamMotionDetection
             }
         }
         
-        public event EventHandler<DetectingEventArgs> DataRecived;  
-
-        public void StartCams(params string[] cams)
+        public event EventHandler<DetectingEventArgs> DataRecived;
+        
+        Dictionary<string, MotionDetector> detectors = new Dictionary<string, MotionDetector>();
+        
+        public string[] GetActiveCamSource()
         {
-            for (int i = 0; i < cams.Length; i++)
+            return detectors.Keys.ToArray();
+        }
+
+        /// <summary>        
+        /// Запускает распознавание движений с камер в отдельных потоках
+        /// </summary>
+        /// <param name="source">строки подключения к камерам</param>
+        public void StartCams(params string[] source)
+        {           
+            foreach (var cam in source)
             {
-                MotionDetector detector = new MotionDetector(cams[i]);
+                if (detectors.ContainsKey(cam)) continue;  
+                           
+                MotionDetector detector = new MotionDetector(cam);
                 detector.CycleInterval = cycle;                
-                detector.DataRecived += Detector_DataRecived;
+                detector.DataRecived += OnControllerDataRecived;                
 
                 new Task(detector.Start).Start();
+                detectors[cam] = detector;
             }
         }
 
-        private void Detector_DataRecived(object sender, DetectingEventArgs e)
+        /// <summary>
+        /// Останавливает и уничтожает камеры
+        /// </summary>   
+        /// <param name="source">строки подключения к камерам</param>
+        public void StopCams(params string[] source)
+        {
+            foreach (var cam in source) 
+            {
+                if (detectors.ContainsKey(cam))
+                {
+                    detectors[cam].Stop();
+                    detectors.Remove(cam);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Перезапускает указанные камеры
+        /// </summary>
+        /// <param name="source">строки подключения к камерам</param>
+        public void RestartCams(params string[] source)
+        {
+            StopCams(source);
+            StartCams(source);
+        }
+
+        private void OnControllerDataRecived(object sender, DetectingEventArgs e)
         {
             DataRecived?.Invoke(this, e);
         }

@@ -65,6 +65,12 @@ namespace IpCamMotionDetection
             }          
         }
 
+        public void Stop()
+        {
+            _capture.Stop();           
+            _capture.Dispose();
+            _capture = null;
+        }
 
         Mat image;
         private Mat _segMask = new Mat();
@@ -134,8 +140,7 @@ namespace IpCamMotionDetection
             //Total Motions found: {0}; Motion Pixel count: {1}
             AddData(rects.Length, overallMotionPixelCount);
         }
-        
-        
+                
         int total_count = 0;
         double average_motions = 0;
         double average_pixels = 0;
@@ -177,7 +182,8 @@ namespace IpCamMotionDetection
 
         public void Dispose()
         {
-            _capture.Dispose();
+            if (_capture != null)
+                _capture.Dispose();
         }   
     }
 }
