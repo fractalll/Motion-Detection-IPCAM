@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-
+using IpCamLibrary;
 
 namespace IpCamMotionDetection
 {
@@ -15,7 +15,7 @@ namespace IpCamMotionDetection
         static void Main(string[] args)
         {
             string config_XML = ConfigurationManager.AppSettings["PathToSettingsXML"];
-            string[] cams = DetectionController.LoadCamsFromConfig(config_XML);
+            string[] cams = SettingsManager.GetVLCConnectionStrings(config_XML);
 
             DetectionController dc = new DetectionController();
             dc.DataRecived += OnDataRecived;
@@ -29,6 +29,7 @@ namespace IpCamMotionDetection
                     Environment.Exit(0);
             }
         }
+              
 
         private static void OnDataRecived(object sender, DetectingEventArgs e)
         {            

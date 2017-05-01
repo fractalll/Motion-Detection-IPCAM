@@ -30,9 +30,11 @@ namespace IpCamLibrary
         [XmlElement(ElementName = "Ip_VLC_Stream")]
         public string Ip_vlc { get; set; }
 
+
         [XmlArray("Camera_List"), XmlArrayItem("Camera")]
         public List<Settings> SettingsList { get; set; }
         
+
         /// <summary> Сериализует настройки в XML файл конфигурации </summary>
         public void SaveConfig()
         {
@@ -54,7 +56,7 @@ namespace IpCamLibrary
             }
         }
                 
-        /// <summary> Устаналивает настрйки из другого экземпляра SettingsManager </summary>     
+        
         void SettingsFrom(SettingsManager sm)
         {
             SettingsList = sm.SettingsList;           
@@ -86,6 +88,26 @@ namespace IpCamLibrary
             {
                 throw new ApplicationException("При получении файла конфигурации произошла следующая ошибка: " + ex.Message);
             }
+        }
+
+
+        public static string[] GetVLCConnectionStrings(string pathToConfig)
+        {
+            SettingsManager sm = new SettingsManager(pathToConfig);
+            try
+            {
+                sm.LoadConfig();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            List<string> arr = new List<string>();
+            foreach (Settings set in sm.SettingsList)
+                arr.Add("http://" + sm.Ip_vlc + ":" + set.Port_vlc);
+
+            return arr.ToArray();
         }
     }
 }

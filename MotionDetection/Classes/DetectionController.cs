@@ -80,24 +80,7 @@ namespace IpCamMotionDetection
             DataRecived?.Invoke(this, e);
         }
 
-        public static string[] LoadCamsFromConfig(string pathToConfig)
-        {
-            SettingsManager sm = new SettingsManager(pathToConfig);
-            try
-            {
-                sm.LoadConfig();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
-            List<string> arr = new List<string>();
-            foreach (Settings set in sm.SettingsList)            
-                arr.Add("http://" + sm.Ip_vlc + ":" + set.Port_vlc);
-
-            return arr.ToArray();
-        }
+       
 
 
 
