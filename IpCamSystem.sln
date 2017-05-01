@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpCamCapture", "IpCamCaptur
 		{A5F82C96-7CE1-4038-8302-B7C0BC915765} = {A5F82C96-7CE1-4038-8302-B7C0BC915765}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpCamDetectionService", "IpCamDetectionService\IpCamDetectionService.csproj", "{5F9411D9-A158-4B42-AE57-79EBF930D43E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IpCamMotionDetection", "MotionDetection\IpCamMotionDetection.csproj", "{B6243E70-A222-4ABA-850A-9E25FE3542AD}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{DD98800E-619D-4E2D-B090-31FFD07DFC18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD98800E-619D-4E2D-B090-31FFD07DFC18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD98800E-619D-4E2D-B090-31FFD07DFC18}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F9411D9-A158-4B42-AE57-79EBF930D43E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F9411D9-A158-4B42-AE57-79EBF930D43E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F9411D9-A158-4B42-AE57-79EBF930D43E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F9411D9-A158-4B42-AE57-79EBF930D43E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B6243E70-A222-4ABA-850A-9E25FE3542AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B6243E70-A222-4ABA-850A-9E25FE3542AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6243E70-A222-4ABA-850A-9E25FE3542AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
