@@ -29,7 +29,7 @@ namespace IpCamMonitor.Controllers
         
         public ActionResult Zoom(string id)
         {   
-            ViewBag.ImageUrl = "http://" + id.Replace('d', '.').Replace('p', ':');
+            ViewBag.ImageUrl = "http://" + id.Replace('_', '.').Replace('-', ':').Replace(')','/');
 
             return View();
         }

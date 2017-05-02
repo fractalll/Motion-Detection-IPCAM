@@ -16,7 +16,7 @@
                 <div class="panel-body">
                     @{
                         string src = "http://" + pic.Uri;
-                        string pseudo_addr = pic.Uri.Replace(':', 'p').Replace('.', 'd');
+                        string pseudo_addr = pic.Uri.Replace(':', '-').Replace('.', '_').Replace('/',')');
                         string href = Url.Action("Zoom") + "/" + pseudo_addr;
                     }
                     <a href=@href>
