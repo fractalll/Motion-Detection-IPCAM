@@ -149,3 +149,7 @@ C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.dll
 C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.pdb
 C:\IpCamMonitor\IpCamMonitor\bin\config.xml
 C:\IpCamMonitor\IpCamMonitor\bin\Content\favicon.ico
+C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.dll
+C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.SqlServer.dll
+C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.xml
+C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.SqlServer.xml

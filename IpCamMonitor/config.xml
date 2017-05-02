@@ -2,17 +2,17 @@
 <SettingsManager xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Ip_VLC_Stream>10.210.50.50</Ip_VLC_Stream>
   <Camera_List>
-    <Camera Title="1-414" Ip="10.210.52.1" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8881" />
-    <Camera Title="1-320" Ip="10.210.52.6" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8886" />
-    <Camera Title="1-318" Ip="10.210.52.7" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8887" />
-    <Camera Title="1-319" Ip="10.210.52.8" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8888" />
-    <Camera Title="1-424" Ip="10.210.52.9" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8889" />
-    <Camera Title="1-322" Ip="10.210.52.11" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8811" />
-    <Camera Title="1-321" Ip="10.210.52.12" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8812" />
-    <Camera Title="1-416" Ip="10.210.52.2" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8882" />
-    <Camera Title="1-430" Ip="10.210.52.3" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8883" />
-    <Camera Title="1-431" Ip="10.210.52.4" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8884" />
-    <Camera Title="1-429" Ip="10.210.52.5" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8885" />
-    <Camera Title="1-425" Ip="10.210.52.10" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8810" />
+    <Camera Title="1-414" Ip="10.210.52.1" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8881/mjpg/video.mjpg" />
+    <Camera Title="1-320" Ip="10.210.52.6" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8886/mjpg/video.mjpg" />
+    <Camera Title="1-318" Ip="10.210.52.7" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8887/mjpg/video.mjpg" />
+    <Camera Title="1-319" Ip="10.210.52.8" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8888/mjpg/video.mjpg" />
+    <Camera Title="1-424" Ip="10.210.52.9" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8889/mjpg/video.mjpg" />
+    <Camera Title="1-322" Ip="10.210.52.11" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8811/mjpg/video.mjpg" />
+    <Camera Title="1-321" Ip="10.210.52.12" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8812/mjpg/video.mjpg" />
+    <Camera Title="1-416" Ip="10.210.52.2" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8882/mjpg/video.mjpg" />
+    <Camera Title="1-430" Ip="10.210.52.3" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8883/mjpg/video.mjpg" />
+    <Camera Title="1-431" Ip="10.210.52.4" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8884/mjpg/video.mjpg" />
+    <Camera Title="1-429" Ip="10.210.52.5" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8885/mjpg/video.mjpg" />
+    <Camera Title="1-425" Ip="10.210.52.10" Port="554" Url="g711v1" Login="admin" Password="Law@9aEZ" VLC_stream_Port="8810/mjpg/video.mjpg" />
   </Camera_List>
 </SettingsManager>

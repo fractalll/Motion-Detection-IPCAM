@@ -16,7 +16,6 @@ namespace IpCamMonitor.Controllers
         SettingsManager settingsManager;
         SettingsViewModel model;
 
-
         public SettingsController()
         {
             settingsManager = new SettingsManager();
@@ -54,7 +53,11 @@ namespace IpCamMonitor.Controllers
         private void SwichCurrentSettingsById(int id)
         {
             // BUG: при отсутсвии нужного id, если файл пусn, например, или вручную вбит адрес
-            model.CurrentSettings = settingsManager.SettingsList.Where(x => x.Id == id).Single();
+            try
+            {
+                model.CurrentSettings = settingsManager.SettingsList.Where(x => x.Id == id).Single();
+            }
+            finally { }
         }
 
         [HttpGet]

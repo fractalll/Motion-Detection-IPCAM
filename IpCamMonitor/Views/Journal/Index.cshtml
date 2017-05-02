@@ -1,0 +1,27 @@
+﻿@using IpCamMonitor.Models;
+@model JournalViewModel
+@{
+    ViewBag.Title = "Статистика";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <label>Выберите камеру: </label>                
+        @using (Html.BeginForm("Index", "Journal", FormMethod.Post, new { id = "comboform" }))
+        {
+            @Html.DropDownListFor(x => x.CurrentCamera.Id, Model.ItemList, new
+            {
+               @class = "form-control",
+               onchange = "this.form.submit();"
+            })
+        }
+    </div>
+</body>
+</html>
