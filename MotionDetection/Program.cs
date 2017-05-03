@@ -17,7 +17,7 @@ namespace IpCamMotionDetection
         {
             try 
             {
-               // InitCameras();
+                //InitCameras();
             }
             catch(Exception ex)
             {
@@ -25,17 +25,18 @@ namespace IpCamMotionDetection
                 Console.ReadKey();
                 return;
             }
-
-            Console.WriteLine("...");
+            
             string [] sources;
             using (JournalDbCobtext db = new JournalDbCobtext())
             {
                 sources = db.Cameras.Where(x => (x.Title == "1-414" || x.Title == "1-321")).Select(x => x.Source).ToArray();
             }
-
+            Console.WriteLine(sources[0]);
+            Console.WriteLine(sources[1]);
+             
             DetectionController dc = new DetectionController();
             dc.DataRecived += OnDataRecived;
-            dc.CycleInterval = 60;
+            dc.CycleInterval = 1;
             dc.StartCams(sources);
 
             while (true)
@@ -91,10 +92,7 @@ namespace IpCamMotionDetection
 
             using (JournalDbCobtext db = new JournalDbCobtext())
             {
-                //  *** Нужно не удалять, а обновлять в случае необходимости ***
-
-                //db.Cameras.RemoveRange(db.Cameras); 
-                //db.SaveChanges();
+                //  *** Нужно не удалять, а обновлять в случае необходимости ***                         
 
                 foreach (var set in sm.SettingsList)
                 {

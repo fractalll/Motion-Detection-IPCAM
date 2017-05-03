@@ -46,7 +46,7 @@ namespace IpCamMotionDetection
         MotionHistory _motionHistory;           
         public void Start()
         {
-            Console.WriteLine("Start "+ _connectionString);
+            Console.WriteLine("Try start "+ _connectionString);
             try
             {
                 _motionHistory = new MotionHistory(
@@ -57,7 +57,7 @@ namespace IpCamMotionDetection
                 _capture = new Capture(_connectionString);
                 _capture.ImageGrabbed += ProcessFrame;
                 _capture.Start();
-                Console.WriteLine("Created camera " + _connectionString);
+                Console.WriteLine("Camera started" + _connectionString);
             }
             catch (Exception ex)
             {
