@@ -24,8 +24,9 @@ namespace IpCamMotionDetection
                 Console.WriteLine("При инициализации приложения произошла ошибка: " + ex.Message);
                 Console.ReadKey();
                 return;
-            }            
+            }
 
+            Console.WriteLine("...");
             string [] sources;
             using (JournalDbCobtext db = new JournalDbCobtext())
             {
