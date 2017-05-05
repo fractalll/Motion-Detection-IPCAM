@@ -8,7 +8,7 @@ namespace IpCamMonitor.Models
 {
     public class JournalViewModel
     {       
-        public IEnumerable<SelectListItem> ItemList { get; set; }
+        public List<SelectListItem> ItemList { get; set; }
         public CameraModel CurrentCamera { get; set; }
     }
 

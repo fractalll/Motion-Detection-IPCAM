@@ -21,22 +21,28 @@ namespace IpCamMonitor.Controllers
                 {
                     Text = x.Title,
                     Value = x.Id.ToString()
-                });               
-            }
+                }).ToList();
 
-            model.CurrentCamera = model.ItemList.Select(x => new CameraModel()
-            {
-                Id = Int32.Parse(x.Value),
-                Title = x.Text
-            }).SingleOrDefault();
+
+                model.CurrentCamera = model.ItemList.Select(x => new CameraModel()
+                {
+                    Id = Int32.Parse(x.Value),
+                    Title = x.Text
+                }).First();
+            }
         }
 
+        [HttpGet]
         public ActionResult Index()
-        {            
-            
+        {   
             return View(model);
         }
 
+        [HttpPost]
+        public ActionResult Index(int id)
+        {
+            return View(model);
+        }
 
 
     }
