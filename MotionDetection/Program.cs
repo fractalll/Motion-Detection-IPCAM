@@ -29,14 +29,14 @@ namespace IpCamMotionDetection
             string [] sources;
             using (JournalDbCobtext db = new JournalDbCobtext())
             {
-                sources = db.Cameras.Where(x => (x.Title == "1-414" || x.Title == "1-321")).Select(x => x.Source).ToArray();
+                sources = db.Cameras.Where(x => (x.Title.Contains("1-4") || x.Title.Contains("414000"))).Select(x => x.Source).ToArray();
             }
-            Console.WriteLine(sources[0]);
-            Console.WriteLine(sources[1]);
-             
+
+            new Task(DetectionController.GCLoop).Start(); 
+
             DetectionController dc = new DetectionController();
             dc.DataRecived += OnDataRecived;
-            dc.CycleInterval = 1;
+            dc.CycleInterval = 60;
             dc.StartCams(sources);
 
             while (true)
@@ -71,8 +71,7 @@ namespace IpCamMotionDetection
                     Camera = db.Cameras.Where(x => x.Source == e.DataSource).SingleOrDefault()      
                 });
 
-                db.SaveChanges();
-                Console.WriteLine("Saved to DB");
+                db.SaveChanges();               
             }
         }
 

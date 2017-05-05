@@ -57,7 +57,7 @@ namespace IpCamMotionDetection
                 _capture = new Capture(_connectionString);
                 _capture.ImageGrabbed += ProcessFrame;
                 _capture.Start();
-                Console.WriteLine("Camera started" + _connectionString);
+                Console.WriteLine("Has started " + _connectionString);
             }
             catch (Exception ex)
             {
@@ -78,6 +78,7 @@ namespace IpCamMotionDetection
         BackgroundSubtractor _forgroundDetector; 
         private void ProcessFrame(object sender, EventArgs e)
         {
+            //GC.Collect();
             Console.Write("#");
             image = new Mat();
             _capture.Retrieve(image);
@@ -147,7 +148,7 @@ namespace IpCamMotionDetection
         DateTime _cycleStart;
         private void AddData(double motions, double pixels)
         {
-            GC.Collect();              
+                         
 
             if (total_count == 0)           
                 _cycleStart = DateTime.Now;     
@@ -167,6 +168,7 @@ namespace IpCamMotionDetection
 
         private void SendData()
         {
+            
             DetectingEventArgs data = new DetectingEventArgs
             {
                 AverageMotions = (int)average_motions,

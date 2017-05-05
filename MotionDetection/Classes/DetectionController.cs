@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace IpCamMotionDetection
@@ -26,8 +27,17 @@ namespace IpCamMotionDetection
         Dictionary<string, MotionDetector> detectors = new Dictionary<string, MotionDetector>();
         
         public string[] GetActiveCamSource()
-        {
+        {   
             return detectors.Keys.ToArray();
+        }
+
+        public static void GCLoop()
+        {
+            while(true)
+            {
+                GC.Collect();
+                Thread.Sleep(2*1000);
+            }
         }
 
         /// <summary>        
@@ -46,6 +56,7 @@ namespace IpCamMotionDetection
 
                 new Task(detector.Start).Start();
                 detectors[cam] = detector;
+                Thread.Sleep(10000);
             }
         }
 
