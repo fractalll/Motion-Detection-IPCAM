@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IpCamLibrary.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,14 +8,18 @@ using System.Web.Mvc;
 namespace IpCamMonitor.Models
 {
     public class JournalViewModel
-    {       
-        public List<SelectListItem> ItemList { get; set; }
-        public CameraModel CurrentCamera { get; set; }
+    {
+        public List<CameraHistory> ListCams { get; set; }
     }
 
-    public class CameraModel
+    public class CameraHistory
     {
-        public int Id { get; set; }
         public string Title { get; set; }
+
+        public State[] Data {get;set;}
     }
+
+
+
+   
 }

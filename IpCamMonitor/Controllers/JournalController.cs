@@ -10,40 +10,39 @@ namespace IpCamMonitor.Controllers
 {
     public class JournalController : Controller
     {
-        JournalViewModel model;
+
 
         public JournalController()
-        {
-            using (JournalDbCobtext db = new JournalDbCobtext())
-            {
-                model = new JournalViewModel();
-                model.ItemList = db.Cameras.Select(x => new SelectListItem()
-                {
-                    Text = x.Title,
-                    Value = x.Id.ToString()
-                }).ToList();
-
-
-                model.CurrentCamera = model.ItemList.Select(x => new CameraModel()
-                {
-                    Id = Int32.Parse(x.Value),
-                    Title = x.Text
-                }).First();
-            }
+        {       
         }
+
 
         [HttpGet]
         public ActionResult Index()
-        {   
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult Index(int id)
         {
+            JournalViewModel model = new JournalViewModel()
+            {
+                ListCams = new List<CameraHistory>()
+            };
+
+            List<Camera> cams;
+            using (JournalDbCobtext db = new JournalDbCobtext())
+            {
+                cams = db.Cameras.ToList();                
+            }
+
+            foreach (var cam in cams)
+            {
+                model.ListCams.Add(new CameraHistory
+                {
+                    Title = cam.Title,
+                    Data = DataProvider.GetData(DateTime.Parse("2017-05-06"), cam.Id)
+                });
+            }  
+
             return View(model);
         }
-
+     
 
     }
 }

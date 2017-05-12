@@ -1,8 +1,12 @@
 ﻿@using IpCamMonitor.Models;
-
+@model JournalViewModel
 @{
     ViewBag.Title = "Статистика";
     string color_pairs = "#c1d7d7";
+    string color_NoData = "#ebedf0";
+    string color_Yes = "#0da535";
+    string color_No = "#a5190c";
+    int R = 10;
 }
 
 <!DOCTYPE html>
@@ -18,35 +22,44 @@
         <svg width="2000" height="600">
             <g transform="translate(200, 60)">  
                 <text x="0" y="-40">@DateTime.Now</text>
-
-                <rect x="128" y="-30" width="102" height="1000" fill="@color_pairs"></rect>
+                @{ int height = Model.ListCams.Count * 30 + 70; }
+                <rect x="128" y="-30" width="102" height="@height" fill="@color_pairs"></rect>
                 <text x="160" y="-10">1 пара</text>
                 
-                <rect x="244" y="-30" width="102" height="1000" fill="@color_pairs"></rect>
+                <rect x="244" y="-30" width="102" height="@height" fill="@color_pairs"></rect>
                 <text x="270" y="-10">2 пара</text>
 
-                <rect x="393" y="-30" width="102" height="1000" fill="@color_pairs"></rect>
+                <rect x="393" y="-30" width="102" height="@height" fill="@color_pairs"></rect>
                 <text x="425" y="-10">3 пара</text>
 
-                <rect x="509" y="-30" width="102" height="1000" fill="@color_pairs"></rect>
+                <rect x="509" y="-30" width="102" height="@height" fill="@color_pairs"></rect>
                 <text x="540" y="-10">4 пара</text>
 
-                <rect x="625" y="-30" width="102" height="1000" fill="@color_pairs"></rect>
+                <rect x="625" y="-30" width="102" height="@height" fill="@color_pairs"></rect>
                 <text x="655" y="-10">5 пара</text>
 
-                <rect x="741" y="-30" width="102" height="1000" fill="@color_pairs"></rect>
+                <rect x="741" y="-30" width="102" height="@height" fill="@color_pairs"></rect>
                 <text x="770" y="-10">6 пара</text>                               
 
-                @{
-                    int R = 10;
-                    int margin = 0;
-                }
-                <g>
-                    <text text-anchor="start" class="wday" dx="0" dy="12">1-320</text>
-                    @for (int i = 1; i < 73 ; i++)
+                @for (int g = 0; g < Model.ListCams.Count; g++)
+                {
+                int margin = 0;
+                <g transform="translate(0,@(g*30))">                    
+                    <text text-anchor="start" class="wday" dx="0" dy="12">@Model.ListCams[g].Title</text>
+                    @for (int i = 1; i < 73; i++)
                     {
-                        @:<rect class="10minutes" width="@R" height="@(R + 5)" x="@(i * (@R + 1) + 50 + margin)" y="0" fill="#ebedf0" data-count="0" data-date="2016-05-01"></rect>     
-                       
+                        string color = color_NoData;
+                        if (Model.ListCams[g].Data[i - 1] == IpCamLibrary.Database.State.Yes)
+                        {
+                            color = color_Yes;
+                        }
+                        else if (Model.ListCams[g].Data[i - 1] == IpCamLibrary.Database.State.No)
+                        {
+                            color = color_No;
+                        }
+
+                        @:<rect class="10minutes" width="@R" height="@(R + 5)" x="@(i * (@R + 1) + 50 + margin)" y="0" fill="@color" data-count="0" data-date=""></rect>     
+
                         const int hour = 6;
                         const int pair = 9;
                         const int pause = 1;
@@ -67,16 +80,16 @@
                             case hour + pair + pause + pair + PAUSE + pair + pause + pair + pause + pair: margin += add_magin; break;
                             case hour + pair + pause + pair + PAUSE + pair + pause + pair + pause + pair + pause: margin += add_magin; break;
                             case hour + pair + pause + pair + PAUSE + pair + pause + pair + pause + pair + pause + pair: margin += add_magin; break;
-                            case hour + pair + pause + pair + PAUSE + pair + pause + pair + pause + pair + pause + pair + PAUSE: margin += add_magin*10; break;
+                            case hour + pair + pause + pair + PAUSE + pair + pause + pair + pause + pair + pause + pair + PAUSE: margin += add_magin * 10; break;
                             default: break;
                         }
 
                     }
                 </g>
-                
-                
-               
-             
+                }
+
+
+
              </g>
         </svg>
     </div>
