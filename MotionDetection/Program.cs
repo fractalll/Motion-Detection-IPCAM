@@ -29,7 +29,7 @@ namespace IpCamMotionDetection
             string [] sources;
             using (JournalDbCobtext db = new JournalDbCobtext())
             {
-                sources = db.Cameras.Where(x => (x.Title.Contains("1-4") || x.Title.Contains("414000"))).Select(x => x.Source).ToArray();
+                sources = db.Cameras.Where(x => (x.Title.Contains("1-4"))).Select(x => x.Source).ToArray();
             }
 
             new Task(DetectionController.GCLoop).Start(); 

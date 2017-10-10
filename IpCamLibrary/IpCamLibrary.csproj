@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\Camera.cs" />
+    <Compile Include="Database\DataProvider.cs" />
     <Compile Include="Database\JournalDbCobtext.cs" />
     <Compile Include="Database\Log.cs" />
     <Compile Include="Migrations\201705012001444_InitialCreate.cs" />

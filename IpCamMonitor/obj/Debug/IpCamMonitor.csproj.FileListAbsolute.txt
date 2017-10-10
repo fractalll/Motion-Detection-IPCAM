@@ -153,3 +153,5 @@ C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.dll
 C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.SqlServer.dll
 C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.xml
 C:\IpCamMonitor\IpCamMonitor\bin\EntityFramework.SqlServer.xml
+C:\IpCamMonitor\IpCamMonitor\bin\IpCamLibrary.dll.config
+C:\IpCamMonitor\IpCamMonitor\obj\Debug\IpCamMonitor.csproj.CoreCompileInputs.cache
