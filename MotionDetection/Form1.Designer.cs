@@ -28,20 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnTurnAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // btnTurnAll
+            // 
+            this.btnTurnAll.Location = new System.Drawing.Point(12, 12);
+            this.btnTurnAll.Name = "btnTurnAll";
+            this.btnTurnAll.Size = new System.Drawing.Size(147, 23);
+            this.btnTurnAll.TabIndex = 0;
+            this.btnTurnAll.Text = "Включить все";
+            this.btnTurnAll.UseVisualStyleBackColor = true;
+            this.btnTurnAll.Click += new System.EventHandler(this.btnTurnAll_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 424);
+            this.ClientSize = new System.Drawing.Size(558, 509);
+            this.Controls.Add(this.btnTurnAll);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Управление распознаванием";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnTurnAll;
     }
 }

@@ -23,49 +23,8 @@ namespace IpCamMotionDetection
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-
-            /*
-            string[] sources;
-            using (JournalDbCobtext db = new JournalDbCobtext())
-            {
-                sources = db.Cameras.Select(x => x.Source).ToArray();
-            }
-
-            new Task(DetectionController.GCLoop).Start();
-
-            DetectionController dc = new DetectionController();
-            dc.DataRecived += OnDataRecived;
-            dc.CycleInterval = 60;
-            dc.StartCams(sources);   */      
-        }
-              
-
-        private static void OnDataRecived(object sender, DetectingEventArgs e)
-        {            
-            e.PrintConsole();
-            lock (locker)
-            {
-                SaveToDatabase(e);
-            }
-        }
-
-        static object locker = new object();
-        public static void SaveToDatabase(DetectingEventArgs e)
-        {
-            using (JournalDbCobtext db = new JournalDbCobtext())
-            {
-                db.Logs.Add(new Log()
-                {
-                    AverageMotions = e.AverageMotions,
-                    TimeStart = e.TimeStart,
-                    TimeFinish = e.TimeFinish,
-                    TotalCount = e.TotalCount,
-                    Camera = db.Cameras.Where(x => x.Source == e.DataSource).SingleOrDefault()      
-                });
-
-                db.SaveChanges();               
-            }
-        }
+    
+        }           
 
         public static void InitCameras()
         {

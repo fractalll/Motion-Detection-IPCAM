@@ -5,6 +5,7 @@ using Emgu.CV.VideoSurveillance;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace IpCamMotionDetection
 {
@@ -33,6 +34,7 @@ namespace IpCamMotionDetection
 
         public event EventHandler<DetectingEventArgs> DataRecived;
         string _connectionString;
+
         public MotionDetector(string connectionString, int cycleInterval = 10)
         {
             _connectionString = connectionString;
@@ -43,7 +45,8 @@ namespace IpCamMotionDetection
         }
 
         Capture _capture;
-        MotionHistory _motionHistory;           
+        MotionHistory _motionHistory;
+
         public void Start()
         {
             Console.WriteLine("Try start "+ _connectionString);
@@ -57,11 +60,11 @@ namespace IpCamMotionDetection
                 _capture = new Capture(_connectionString);
                 _capture.ImageGrabbed += ProcessFrame;
                 _capture.Start();
-                Console.WriteLine("Has started " + _connectionString);
+                //Console.WriteLine("Has started " + _connectionString);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             }          
         }
 

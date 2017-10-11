@@ -56,7 +56,7 @@ namespace IpCamMotionDetection
 
                 new Task(detector.Start).Start();
                 detectors[cam] = detector;
-                Thread.Sleep(10000);
+               // Thread.Sleep(0);
             }
         }
 
