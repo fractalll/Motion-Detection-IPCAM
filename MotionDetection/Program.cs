@@ -8,43 +8,35 @@ using System.Threading;
 using System.Threading.Tasks;
 using IpCamLibrary;
 using IpCamLibrary.Database;
+using System.Windows.Forms;
 
 namespace IpCamMotionDetection
 {
     class Program
     {
+        /// <summary>
+        /// Главная точка входа для приложения.
+        /// </summary>
+        [STAThread]
         static void Main(string[] args)
         {
-            try 
-            {
-                //InitCameras();
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("При инициализации приложения произошла ошибка: " + ex.Message);
-                Console.ReadKey();
-                return;
-            }
-            
-            string [] sources;
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+
+            /*
+            string[] sources;
             using (JournalDbCobtext db = new JournalDbCobtext())
             {
-                sources = db.Cameras.Where(x => (x.Title.Contains("1-4"))).Select(x => x.Source).ToArray();
+                sources = db.Cameras.Select(x => x.Source).ToArray();
             }
 
-            new Task(DetectionController.GCLoop).Start(); 
+            new Task(DetectionController.GCLoop).Start();
 
             DetectionController dc = new DetectionController();
             dc.DataRecived += OnDataRecived;
             dc.CycleInterval = 60;
-            dc.StartCams(sources);
-
-            while (true)
-            {               
-                var key = Console.ReadKey(false);
-                if (key.KeyChar == 'q')
-                    Environment.Exit(0);
-            }
+            dc.StartCams(sources);   */      
         }
               
 
