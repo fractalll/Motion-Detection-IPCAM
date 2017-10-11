@@ -23,7 +23,9 @@ namespace IpCamMotionDetection
         }
         
         public event EventHandler<DetectingEventArgs> DataRecived;
-        
+
+        public event EventHandler<DetectingEventArgs> FrameProcessed;
+
         Dictionary<string, MotionDetector> detectors = new Dictionary<string, MotionDetector>();
         
         public string[] GetActiveCamSource()
@@ -52,13 +54,25 @@ namespace IpCamMotionDetection
                            
                 MotionDetector detector = new MotionDetector(cam);
                 detector.CycleInterval = cycle;                
-                detector.DataRecived += OnControllerDataRecived;                
+                detector.DataRecived += OnControllerDataRecived;
+                detector.FrameProcessed += Detector_FrameProcessed;
 
                 new Task(detector.Start).Start();
                 detectors[cam] = detector;
                // Thread.Sleep(0);
             }
         }
+
+        private void Detector_FrameProcessed(object sender, DetectingEventArgs e)
+        {
+            FrameProcessed?.Invoke(this, e);
+        }
+
+        private void OnControllerDataRecived(object sender, DetectingEventArgs e)
+        {
+            DataRecived?.Invoke(this, e);
+        }
+
 
         /// <summary>
         /// Останавливает и уничтожает камеры
@@ -86,10 +100,7 @@ namespace IpCamMotionDetection
             StartCams(source);
         }
 
-        private void OnControllerDataRecived(object sender, DetectingEventArgs e)
-        {
-            DataRecived?.Invoke(this, e);
-        }
+      
 
        
 

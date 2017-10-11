@@ -25,7 +25,11 @@ namespace IpCamMotionDetection
 
             new Task(DetectionController.GCLoop).Start();
             dc.DataRecived += OnDataRecived;
+            dc.FrameProcessed += OnFrameProcessed;
+
         }
+
+       
 
         private void AddCameraControls(int X, int Y)
         {
@@ -152,6 +156,30 @@ namespace IpCamMotionDetection
             }
         }
 
+       
+
+        MethodInvoker _action;
+
+        private void OnFrameProcessed(object sender, DetectingEventArgs e)
+        {
+            try
+            {
+                Label source_label = (Label)ActiveForm.Controls.Find("l_source", true).Where(x => x.Text == e.DataSource).Single();
+                Control contr = source_label.Parent.Controls["l_out"];
+                _action = new MethodInvoker(() => contr.Text = e.TotalCount.ToString());
+
+
+                if (contr.InvokeRequired)
+                {
+                    contr.Invoke(_action);
+                }
+                else
+                    _action();
+            }
+            catch { }
+                     
+        }
+
         static object locker = new object();
         public static void SaveToDatabase(DetectingEventArgs e)
         {
@@ -166,7 +194,7 @@ namespace IpCamMotionDetection
                     Camera = db.Cameras.Where(x => x.Source == e.DataSource).SingleOrDefault()
                 });
 
-                db.SaveChanges();
+                db.SaveChanges();                
             }
         }
 

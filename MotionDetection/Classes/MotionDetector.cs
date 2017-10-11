@@ -33,6 +33,8 @@ namespace IpCamMotionDetection
         }       
 
         public event EventHandler<DetectingEventArgs> DataRecived;
+        public event EventHandler<DetectingEventArgs> FrameProcessed;
+
         string _connectionString;
 
         public MotionDetector(string connectionString, int cycleInterval = 10)
@@ -151,7 +153,11 @@ namespace IpCamMotionDetection
         DateTime _cycleStart;
         private void AddData(double motions, double pixels)
         {
-                         
+            FrameProcessed?.Invoke(this, new DetectingEventArgs()
+            {
+                DataSource = _connectionString,
+                TotalCount = (int)motions,                
+            });
 
             if (total_count == 0)           
                 _cycleStart = DateTime.Now;     
