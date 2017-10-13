@@ -120,8 +120,7 @@ namespace IpCamMotionDetection
         }
 
         private void StartRecognized(string source)
-        {
-            //Task t1 = new Task();
+        { 
             dc.StartCams(source);
         }
 
@@ -198,12 +197,27 @@ namespace IpCamMotionDetection
             }
         }
 
-        private void btnTurnAll_Click(object sender, EventArgs e)
+        private void btnStartAll_Click(object sender, EventArgs e)
         {
-            Control[] ctrls = Controls.Find("b_action", true);
-            foreach (var item in ctrls)
+            Control[] ctrls = ActiveForm.Controls.Find("b_action",true);
+
+            foreach (var btn in ctrls)
             {
-                B1_Click(item, new EventArgs());
+                Button bt = (Button)btn;
+                if (bt.Text == "On")
+                    B1_Click(bt, new EventArgs());
+            }            
+        }
+
+        private void btnStopAll_Click(object sender, EventArgs e)
+        {
+            Control[] ctrls = ActiveForm.Controls.Find("b_action", true);
+
+            foreach (var btn in ctrls)
+            {
+                Button bt = (Button)btn;
+                if (bt.Text == "Off")
+                    B1_Click(bt, new EventArgs());
             }
         }
     }

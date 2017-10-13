@@ -72,6 +72,7 @@ namespace IpCamMotionDetection
 
         public void Stop()
         {
+            if (_capture == null)  return;
             _capture.Stop();           
             _capture.Dispose();
             _capture = null;

@@ -28,25 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnTurnAll = new System.Windows.Forms.Button();
+            this.btnStartAll = new System.Windows.Forms.Button();
+            this.btnStopAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnTurnAll
+            // btnStartAll
             // 
-            this.btnTurnAll.Location = new System.Drawing.Point(12, 12);
-            this.btnTurnAll.Name = "btnTurnAll";
-            this.btnTurnAll.Size = new System.Drawing.Size(147, 23);
-            this.btnTurnAll.TabIndex = 0;
-            this.btnTurnAll.Text = "Включить все";
-            this.btnTurnAll.UseVisualStyleBackColor = true;
-            this.btnTurnAll.Click += new System.EventHandler(this.btnTurnAll_Click);
+            this.btnStartAll.Location = new System.Drawing.Point(12, 12);
+            this.btnStartAll.Name = "btnStartAll";
+            this.btnStartAll.Size = new System.Drawing.Size(147, 23);
+            this.btnStartAll.TabIndex = 0;
+            this.btnStartAll.Text = "Запустить все";
+            this.btnStartAll.UseVisualStyleBackColor = true;
+            this.btnStartAll.Click += new System.EventHandler(this.btnStartAll_Click);
+            // 
+            // btnStopAll
+            // 
+            this.btnStopAll.Location = new System.Drawing.Point(165, 12);
+            this.btnStopAll.Name = "btnStopAll";
+            this.btnStopAll.Size = new System.Drawing.Size(147, 23);
+            this.btnStopAll.TabIndex = 1;
+            this.btnStopAll.Text = "Остановить все";
+            this.btnStopAll.UseVisualStyleBackColor = true;
+            this.btnStopAll.Click += new System.EventHandler(this.btnStopAll_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 509);
-            this.Controls.Add(this.btnTurnAll);
+            this.Controls.Add(this.btnStopAll);
+            this.Controls.Add(this.btnStartAll);
             this.Name = "Form1";
             this.Text = "Управление распознаванием";
             this.ResumeLayout(false);
@@ -55,6 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnTurnAll;
+        private System.Windows.Forms.Button btnStartAll;
+        private System.Windows.Forms.Button btnStopAll;
     }
 }
