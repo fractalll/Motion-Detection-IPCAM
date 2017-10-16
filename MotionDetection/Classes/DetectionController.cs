@@ -26,11 +26,11 @@ namespace IpCamMotionDetection
 
         public event EventHandler<DetectingEventArgs> FrameProcessed;
 
-        Dictionary<string, MotionDetector> detectors = new Dictionary<string, MotionDetector>();
+        Dictionary<string, MotionDetector> _activeDetectors = new Dictionary<string, MotionDetector>();
         
         public string[] GetActiveCamSource()
         {   
-            return detectors.Keys.ToArray();
+            return _activeDetectors.Keys.ToArray();
         }
 
         public static void GCLoop()
@@ -42,29 +42,9 @@ namespace IpCamMotionDetection
             }
         }
 
-        /// <summary>        
-        /// Запускает распознавание движений с камер в отдельных потоках
-        /// </summary>
-        /// <param name="source">строки подключения к камерам</param>
-        public void StartCams(params string[] source)
-        {           
-            foreach (var cam in source)
-            {
-                if (detectors.ContainsKey(cam)) continue;  
-                           
-                MotionDetector detector = new MotionDetector(cam);
-                detector.CycleInterval = cycle;                
-                detector.DataRecived += OnControllerDataRecived;
-                detector.FrameProcessed += Detector_FrameProcessed;
-
-                new Task(detector.Start).Start();
-                detectors[cam] = detector;
-               // Thread.Sleep(0);
-            }
-        }
-
         private void Detector_FrameProcessed(object sender, DetectingEventArgs e)
         {
+            //e.DataSource, e.TotalCount
             FrameProcessed?.Invoke(this, e);
         }
 
@@ -73,7 +53,27 @@ namespace IpCamMotionDetection
             DataRecived?.Invoke(this, e);
         }
 
+        /// <summary>        
+        /// Запускает распознавание движений с камер в отдельных потоках
+        /// </summary>
+        /// <param name="source">строки подключения к камерам</param>
+        public void StartCams(params string[] source)
+        {           
+            foreach (var cam in source)
+            {
+                if (_activeDetectors.ContainsKey(cam)) continue;  
+                           
+                MotionDetector detector = new MotionDetector(cam);
+                detector.CycleInterval = cycle;                
+                detector.DataRecived += OnControllerDataRecived;
+                detector.FrameProcessed += Detector_FrameProcessed;
 
+                new Task(detector.Start).Start();
+                _activeDetectors[cam] = detector;
+               // Thread.Sleep(0);
+            }
+        }
+       
         /// <summary>
         /// Останавливает и уничтожает камеры
         /// </summary>   
@@ -82,10 +82,10 @@ namespace IpCamMotionDetection
         {
             foreach (var cam in source) 
             {
-                if (detectors.ContainsKey(cam))
+                if (_activeDetectors.ContainsKey(cam))
                 {
-                    detectors[cam].Stop();
-                    detectors.Remove(cam);
+                    _activeDetectors[cam].Stop();
+                    _activeDetectors.Remove(cam);
                 }
             }
         }

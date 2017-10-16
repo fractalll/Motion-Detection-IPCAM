@@ -28,9 +28,7 @@ namespace IpCamMotionDetection
             dc.FrameProcessed += OnFrameProcessed;
 
         }
-
-       
-
+        
         private void AddCameraControls(int X, int Y)
         {
             Camera[] cams = GetCams();
